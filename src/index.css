@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/* * {
+  outline: 1px solid red;
+} */
+
+@theme {
+  --color-primary: #5d275d;
+  --color-analogous: #5d2741;
+  --color-accent: #f59e0b;
+  --color-light: #f4f4f4;
+  --color-dark: #2e2e2e;
+  --color-bg: #1f1f1f;
+  --color-gray: #6b6b6b;  
+
+  /* Serif */
+  --font-serif: "Playfair Display", serif;
+  /* Sans */
+  --font-sans: "Inria Sans", sans-serif;
+  /* Script */
+  --font-script: "Dancing Script", cursive;
+  /* Display */
+  --font-display: "Clash Display", sans-serif;
+}
+
+:root {
+  font-family: "Inria Sans", "Inter", "Nunito", "Segoe UI", "Arial", sans-serif;
+
+  color-scheme: light dark;
+  color: var(--color-light);
+  background-color: var(--color-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-light);
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+
+  line-height: 0.9;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+.pixel-container {
+  position: relative;
+  max-width: 31.25px;
+  max-height: 31.25px;
+}
+
+.pixel {
+  image-rendering: crisp-edges;
+  object-fit: cover;
+  transition: all 0.5s ease;
+  position: relative;
+  z-index: 0;
+}
+.pixel-container::after {
+  content: "";
+  background-color: var(--color-bg);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  box-shadow: inset 0 0 3px var(--color-accent),
+    inset 0 0 10px rgba(255, 162, 0, 0.638);
+  filter: brightness(1.2);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in;
+}
+
+.pixel-container:hover::after {
+  opacity: 1;
+}
+
+.navbar-icon {
+  @apply h-4 hover:scale-150 group-hover:scale-110 duration-300 transition-all cursor-pointer hover:px-2 group-hover:m-1;
+}
