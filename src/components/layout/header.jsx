@@ -19,7 +19,6 @@ const Header = () => {
           end: "+=400",
           toggleActions: "play none none reverse",
           scrub: 1,
-          markers: true,
         },
       });
     });
@@ -44,7 +43,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <Navbar headerRef={headerRef}/>
+      <Navbar headerRef={headerRef} />
     </>
   );
 };

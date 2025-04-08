@@ -29,7 +29,6 @@ const Navbar = ({ headerRef }) => {
             end: "+=400",
             toggleActions: "play none none reverse",
             scrub: 1,
-            markers: true,
           },
         }
       );
