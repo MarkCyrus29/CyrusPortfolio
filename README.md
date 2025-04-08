@@ -1,1 +1,1 @@
-HI! I'm Mark Cyrus F. Serrano and I am Philippine based Web Developer
+HI! I'm Mark Cyrus F. Serrano, a Philippine based Web Developer
