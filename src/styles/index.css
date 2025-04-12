@@ -7,11 +7,11 @@
 @theme {
   --color-primary: #5d275d;
   --color-analogous: #5d2741;
-  --color-accent: #f59e0b;
+  --color-accent: #f8c162;
   --color-light: #f4f4f4;
   --color-dark: #2e2e2e;
   --color-bg: #1f1f1f;
-  --color-gray: #6b6b6b;  
+  --color-gray: #cccccc;
 
   /* Serif */
   --font-serif: "Playfair Display", serif;
@@ -22,6 +22,7 @@
   /* Display */
   --font-display: "Clash Display", sans-serif;
 }
+  
 
 :root {
   font-family: "Inria Sans", "Inter", "Nunito", "Segoe UI", "Arial", sans-serif;
@@ -74,6 +75,7 @@ h2 {
   position: relative;
   z-index: 0;
 }
+
 .pixel-container::after {
   content: "";
   background-color: var(--color-bg);

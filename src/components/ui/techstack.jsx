@@ -56,19 +56,19 @@ const techStack = [
 ];
 const TechStack = () => {
   return (
-    <div className="w-full flex justify-center items-start ">
+    <div className="w-full flex justify-center items-start h-1/10">
       <Marquee
         speed={100}
         autoFill={true}
         pauseOnHover={true}
         id="list"
-        className="flex flex-row w-full p-1 overflow-hidden"
+        className="flex flex-row w-full p-1 overflow-hidden border-x-4 border-x-analogous rounded-4xl "
       >
         {techStack.map((tech) => {
           return (
             <div
               key={tech.name}
-              className="relative flex items-center min-h-24 min-w-24 bg-dark drop-shadow-analogous drop-shadow-lg p-2 mx-5 rounded-t-xl group"
+              className="relative flex items-center min-h-24 min-w-24 h-full bg-dark  p-2 mx-5 rounded-t-xl group hover:scale-110 transition-all"
             >
               <img
                 src={

@@ -23,6 +23,8 @@ const Navbar = ({ headerRef }) => {
           translateY: "0",
           ease: "expo.out",
           duration: 0.5,
+          // Use will-change for GPU boost
+          willChange: "transform",
           scrollTrigger: {
             trigger: headerRef.current,
             start: "center center",

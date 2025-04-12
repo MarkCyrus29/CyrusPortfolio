@@ -10,6 +10,8 @@ const Header = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.to(headerRef.current, {
+        // Use will-change for GPU boost
+        willChange: "transform",
         translateY: "-100px",
         ease: "expo.out",
         duration: 0.5,
@@ -30,7 +32,7 @@ const Header = () => {
     <>
       <header className="w-full flex justify-center ">
         <div ref={headerRef} className="fixed h-full top-8 w-[60%] ">
-          <div className="w-full justify-between flex flex-row items-center bg-bg/90 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 p-2">
+          <div className="w-full justify-between flex flex-row items-center p-2">
             <div>
               <span className="font-bold text-primary text-4xl">Cyr</span>
               <span className="text-4xl">.us</span>
