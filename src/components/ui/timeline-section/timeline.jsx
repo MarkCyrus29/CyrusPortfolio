@@ -25,10 +25,9 @@ export const Timeline = ({ data }) => {
   return (
     <div className="w-full font-sans md:px-10 " ref={containerRef}>
       <div className="max-w-7xl mx-auto py-20  px-4 md:px-8 lg:px-10 text-center flex  flex-col items-center justify-center ">
-        <h2 className="project-title array  text-lg md:text-9xl mb-5  text-black dark:text-white max-w-9xl drop-shadow-[0_4px_8px_var(--color-primary),0_-4px_8px_var(--color-accent)] cursor-default text-center">
+        <h2 className="project-title array  text-lg md:text-9xl mb-5  text-black dark:text-white max-w-9xl drop-shadow-[4px_6px_8px_var(--color-primary),-4px_-4px_8px_var(--color-light)] cursor-default text-center">
           Projects
         </h2>
-        {""}
         <p className="sans text-gray dark:text-gray text-sm md:text-base max-w-md ">
           Listed are passion projects that showcase my web development journey,
           with my most recent work at the top.
@@ -47,15 +46,15 @@ export const Timeline = ({ data }) => {
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-dark flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-dark p-2" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-gray dark:text-gray ">
+              <span className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-gray dark:text-gray ">
                 {item.title}
-              </h3>
+              </span>
             </div>
 
             <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-gray dark:text-gray">
+              <span className="md:hidden block text-2xl mb-4 text-left font-bold text-gray dark:text-gray">
                 {item.title}
-              </h3>
+              </span>
               {item.content}{" "}
             </div>
           </div>

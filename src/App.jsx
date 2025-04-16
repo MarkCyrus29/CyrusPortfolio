@@ -10,6 +10,8 @@ import { Timeline } from "./components/ui/timeline-section/timeline";
 import TimelineTitle from "./components/ui/timeline-section/timeline-title";
 import TimelineContent from "./components/ui/timeline-section/timeline-content";
 import qrMaker from "./assets/projects/qr-maker.png";
+import SendEmail from "./components/ui/SendEmail";
+import FadeContent from "./animations/FadeContent";
 
 function App() {
   useEffect(() => {
@@ -19,24 +21,31 @@ function App() {
   }, []);
 
   return (
-    <div className="main-container">
-      <Aurora
-        colorStops={["#5d275d", "#5d2741", "#5d275d"]}
-        blend={0.7}
-        amplitude={0.5}
-        speed={1}
-      />
-      <div className="min-w-0 min-h-dvh flex justify-center">
-        <main className="min-w-[60%] max-w-[60%] flex flex-col ">
-          <Header />
+    <FadeContent
+      blur={true}
+      duration={1000}
+      easing="ease-out"
+      initialOpacity={0}
+    >
+      <div className="main-container">
+        <Aurora
+          colorStops={["#5d275d", "#5d2741", "#5d275d"]}
+          blend={0.7}
+          amplitude={0.5}
+          speed={1}
+        />
+        <div className="min-w-0 min-h-dvh flex justify-center">
+          <main className="min-w-[60%] max-w-[60%] flex flex-col ">
+            <Header />
 
-          <HeroSection />
-          <ProjectsSection />
-          <ContactSection />
-          <Footer />
-        </main>
+            <HeroSection />
+            <ProjectsSection />
+            <ContactSection />
+            <Footer />
+          </main>
+        </div>
       </div>
-    </div>
+    </FadeContent>
   );
 }
 
@@ -143,7 +152,9 @@ const ContactSection = () => {
   return (
     <section
       id="contact-section"
-      className="h-dvh flex items-center flex-row justify-between"
-    ></section>
+      className="h-dvh flex items-center flex-row justify-between "
+    >
+      <SendEmail />
+    </section>
   );
 };

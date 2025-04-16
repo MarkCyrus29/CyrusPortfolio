@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Navbar from "./navbar";
+import FadeContent from "../../animations/FadeContent";
 
 gsap.registerPlugin(ScrollTrigger);
 
