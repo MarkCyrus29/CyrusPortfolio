@@ -114,9 +114,9 @@ export default function Aurora(props) {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.to(ctnDom.current, {
-        translateY: "-80dvh",
+        translateY: "-100dvh",
         ease: "expo.out",
-        duration: 1,
+        duration: 3,
         scrollTrigger: {
           trigger: ctnDom.current,
           start: "center center",
@@ -221,5 +221,5 @@ export default function Aurora(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amplitude]);
 
-  return <div ref={ctnDom} className="w-full h-screen z-0 fixed" />;
+  return <div ref={ctnDom} className="w-full h-screen -z-10 fixed" />;
 }

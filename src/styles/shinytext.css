@@ -11,7 +11,8 @@
   -webkit-background-clip: text;
   background-clip: text;
   display: inline-block;
-  animation: shine 5s linear infinite;
+  animation: shine 3s linear infinite;
+
 }
 
 @keyframes shine {
@@ -25,4 +26,7 @@
 
 .shiny-text.disabled {
   animation: none;
+}
+.shiny-text:hover {
+  background-color: #f4f4f4;
 }

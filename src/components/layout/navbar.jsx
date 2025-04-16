@@ -9,7 +9,7 @@ import linkedinIcon from "../../assets/navbar/linkedin.svg";
 import Icon from "../ui/icons-with-tooltips";
 gsap.registerPlugin(ScrollTrigger);
 
-const Navbar = ({ headerRef }) => {
+const Navbar = (props) => {
   const navbarRef = useRef(null);
 
   useEffect(() => {
@@ -21,12 +21,13 @@ const Navbar = ({ headerRef }) => {
         },
         {
           translateY: "0",
+
           ease: "expo.out",
           duration: 0.5,
           // Use will-change for GPU boost
           willChange: "transform",
           scrollTrigger: {
-            trigger: headerRef.current,
+            trigger: props.headerRef.current,
             start: "center center",
             end: "+=400",
             toggleActions: "play none none reverse",
@@ -42,10 +43,15 @@ const Navbar = ({ headerRef }) => {
     <nav className="w-full flex justify-center">
       <div
         ref={navbarRef}
-        className="fixed bottom-5 p-3 group  rounded-full border z-50  mx-auto flex  hoveitems-center px-4 bg-dark/80  backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 transform-gpu [border:1px_solid_#2e2e2e] [box-shadow:0_-20px_80px_-20px_#1f1f1f_inset] "
+        className=" fixed bottom-5 p-3 group  rounded-full border z-50  mx-auto flex  hoveitems-center px-4 bg-dark/80  backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 transform-gpu [border:1px_solid_#2e2e2e] [box-shadow:0_-20px_80px_-20px_#1f1f1f_inset] "
       >
         <div className="flex flex-row  items-center gap-3 w-max h-max">
-          <Icon title="Home" className="navbar-icon" icon={homeIcon} />
+          <Icon
+            title="Home"
+            className="navbar-icon"
+            icon={homeIcon}
+            handleClick={() => scrollIntoView(heroSection)}
+          />
           <Icon title="Projects" className="navbar-icon" icon={projectsIcon} />
           <Icon title="Contact" className="navbar-icon" icon={contactIcon} />
 

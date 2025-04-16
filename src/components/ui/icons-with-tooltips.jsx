@@ -5,7 +5,6 @@ const Icon = (props) => {
   return (
     <>
       <Tooltip id="tooltip" />
-
       <a
         data-tooltip-delay-show={300}
         data-tooltip-delay-hide={100}
@@ -13,6 +12,7 @@ const Icon = (props) => {
         data-tooltip-content={props.title}
         data-tooltip-place="top"
         data-tooltip-variant="light"
+        onClick={props.handleClick}
       >
         <img
           className={props.className}

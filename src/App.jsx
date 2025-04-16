@@ -4,10 +4,22 @@ import Button from "./components/ui/button";
 import HeroImage from "./components/ui/hero-image";
 import TechStack from "./components/ui/techstack";
 import Aurora from "./animations/Aurora";
+import { useEffect } from "react";
+import Lenis from "lenis";
+import { Timeline } from "./components/ui/timeline-section/timeline";
+import TimelineTitle from "./components/ui/timeline-section/timeline-title";
+import TimelineContent from "./components/ui/timeline-section/timeline-content";
+import qrMaker from "./assets/projects/qr-maker.png";
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      autoRaf: true,
+    });
+  }, []);
+
   return (
-    <>
+    <div className="main-container">
       <Aurora
         colorStops={["#5d275d", "#5d2741", "#5d275d"]}
         blend={0.7}
@@ -17,13 +29,14 @@ function App() {
       <div className="min-w-0 min-h-dvh flex justify-center">
         <main className="min-w-[60%] max-w-[60%] flex flex-col ">
           <Header />
+
           <HeroSection />
           <ProjectsSection />
           <ContactSection />
           <Footer />
         </main>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -35,11 +48,11 @@ const HeroSection = () => {
       id="hero-section"
       className="h-dvh flex items-center flex-col justify-center"
     >
-      <div className="flex flex-row items-center justify-between w-full pb-10 pt-10 z-10">
+      <div className="flex flex-row items-center justify-between w-full pb-10 pt-10 z-10 ">
         <div className="">
-          <h1 className="text-9xl">WEB</h1>
-          <h1 className="text-6xl">DEVELOPER</h1>
-          <p className="font-sans text-gray mb-2">Mark Cyrus Serrano</p>
+          <h1 className="max-text-9xl md:text-9xl">WEB</h1>
+          <h1 className="max-text-6xl md:text-6xl">DEVELOPER</h1>
+          <p className=" text-gray mb-2">Mark Cyrus Serrano</p>
           <Button
             title="Contact me"
             handleClick={() => console.log("clicked!")}
@@ -57,8 +70,73 @@ const ProjectsSection = () => {
   return (
     <section
       id="project-section"
-      className="h-dvh flex items-start flex-row justify-between"
-    ></section>
+      className=" flex items-start flex-row justify-between"
+    >
+      <Timeline
+        data={[
+          {
+            title: (
+              <TimelineTitle
+                link="https://qr-maker-nu.vercel.app/"
+                name="QR Maker"
+                techs="Vite, Reactjs, Tailwindcss, MUI"
+              />
+            ),
+            content: (
+              <TimelineContent
+                desc="QR Maker. A sleek, customizable tool for creating and styling QR codes in seconds."
+                image={qrMaker}
+              />
+            ),
+          },
+          {
+            title: (
+              <TimelineTitle
+                link="https://qr-maker-nu.vercel.app/"
+                name="Air Jordan"
+                techs="Vite, Reactjs, Tailwindcss, GSAP + Lenis"
+              />
+            ),
+            content: (
+              <TimelineContent
+                desc="Air Jordan. A dynamic showcase of Nike Air Jordan sneakers, powered by GSAP ScrollTrigger."
+                image={qrMaker}
+              />
+            ),
+          },
+          {
+            title: (
+              <TimelineTitle
+                link="https://threadspace.vercel.app/home"
+                name="ThreadSpace"
+                techs="Vite, Reactjs, Tailwindcss, Framer Motion, Firebase, Cloudinary"
+              />
+            ),
+            content: (
+              <TimelineContent
+                desc="ThreadSpace. A modern social media platform for threaded discussions."
+                image={qrMaker}
+              />
+            ),
+          },
+          {
+            title: (
+              <TimelineTitle
+                link="https://qr-maker-nu.vercel.app/"
+                name="Marshalls"
+                techs="Vite, Reactjs, Tailwindcss, Emailjs"
+              />
+            ),
+            content: (
+              <TimelineContent
+                desc="Marshalls Tailoring. A showcase for a local tailor’s premium coats and how to reach them."
+                image={qrMaker}
+              />
+            ),
+          },
+        ]}
+      />
+    </section>
   );
 };
 const ContactSection = () => {

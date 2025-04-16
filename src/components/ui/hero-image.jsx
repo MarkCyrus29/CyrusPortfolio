@@ -33,7 +33,7 @@ const HeroImage = () => {
               <img
                 loading="lazy"
                 key={`pixel-${coord}`}
-                className="pixel max-w-full max-h-full object-cover select-none cursor-pointer"
+                className="pixel max-w-full max-h-full object-cover select-none "
                 src={`/pixels/image${coord}.jpeg`}
                 alt={`Pixel (${x},${y})`}
               />

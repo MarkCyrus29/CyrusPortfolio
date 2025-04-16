@@ -5,7 +5,7 @@ const ShinyText = ({ text, disabled = false, speed = 2, className = "" }) => {
 
   return (
     <span
-      className={`shiny-text ${disabled ? "disabled" : ""} ${className}`}
+      className={`shiny-text transition-color duration-500 ${disabled ? "disabled" : ""} ${className}`}
       style={{ animationDuration }}
       aria-disabled={disabled}
     >
