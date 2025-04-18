@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
-/* section {
+/* * {
   outline: 1px solid red;
 } */
-
+button {
+  cursor: pointer;
+}
 @theme {
   --color-primary: #5d275d;
   --color-analogous: #5d2741;
   --color-accent: #f8c162;
   --color-light: #f4f4f4;
   --color-dark: #2e2e2e;
-  --color-bg: #1f1f1f;
-  --color-gray: #cccccc;
+  --color-bg: #0c0c0c;
+  --color-gray: #bdbdbd;
 
   /* Serif */
   --font-serif: "Playfair Display", serif;
@@ -139,4 +141,8 @@ h2 {
     scale: 1;
     opacity: 40%;
   }
+}
+
+.form-input {
+  @apply border-b mb-2 py-2 px-4 focus:outline-none w-[70%] z-10;
 }

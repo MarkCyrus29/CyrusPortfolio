@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-
+import Orb from "../../animations/Orb";
 function SendEmail() {
   const [showAlert, setShowAlert] = useState(true);
 
@@ -41,57 +41,57 @@ function SendEmail() {
 
   return (
     <>
-      <div className="form-card1">
-        <div className="form-card2">
-          <form className="form" ref={form} onSubmit={sendEmail}>
-            <p className="form-heading xs:text-lg md:text-4xl">
-              Contact our Team
-            </p>
-            <p className="form-desc xs:text-xs md:text-xl">
-              Got any questions about our products? We're here to help answer
-              those questions. Chat with us using the form below or the given
-              contact information!
-            </p>
+      <div className="w-full h-full flex relative flex-col justify-center items-center">
+        <Orb
+          hoverIntensity={0.75}
+          rotateOnHover={true}
+          hue={260}
+          forceHoverState={false}
+        />
+        <form
+          className="flex flex-col justify-center items-center text-center "
+          ref={form}
+          onSubmit={sendEmail}
+        >
+          <p className="array mb-5 xs:text-lg md:text-5xl font-bold z-10">
+            Send me a Message
+          </p>
+          <input
+            placeholder="Full name"
+            className="form-input xs:text-sm sm:text-base"
+            type="text"
+            name="user_name"
+            required
+          />
+          <input
+            placeholder="Email / Phone Number"
+            className="form-input  xs:text-sm sm:text-base"
+            type="text"
+            name="user_email"
+            required
+          />
+          <textarea
+            placeholder="Message"
+            cols="20"
+            rows="3"
+            className="form-input resize-none  xs:text-sm sx:text-base"
+            name="message"
+            required
+          ></textarea>
 
-            <div className="form-field">
-              <input
-                placeholder="Full name"
-                className="input-field xs:text-xs sm:text-sm md:text-base"
-                type="text"
-                name="user_name"
-                required
-              />
-            </div>
-
-            <div className="form-field">
-              <input
-                placeholder="Email / Phone Number"
-                className="input-field xs:text-xs sm:text-sm md:text-base"
-                type="text"
-                name="user_email"
-                required
-              />
-            </div>
-
-            <div className="form-field">
-              <textarea
-                placeholder="Message"
-                cols="30"
-                rows="5"
-                className="input-field xs:text-xs sm:text-sm md:text-base"
-                name="message"
-                required
-              ></textarea>
-            </div>
-
-            <input
-              className="cursor-pointer"
-              type="submit"
-              value="Send Message"
-              s
-            />
-          </form>
-        </div>
+          <input
+            className="cursor-pointer py-1 px-2 border z-10"
+            type="submit"
+            value="Send Message"
+          />
+        </form>
+        <a
+          href="https://calendly.com/markcyrus-serrano/30min"
+          target="_blank"
+          className="cursor-pointer z-10"
+        >
+          Schedule a meeting with me
+        </a>
       </div>
     </>
   );

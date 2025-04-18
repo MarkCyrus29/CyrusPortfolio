@@ -12,40 +12,60 @@ import TimelineContent from "./components/ui/timeline-section/timeline-content";
 import qrMaker from "./assets/projects/qr-maker.png";
 import SendEmail from "./components/ui/SendEmail";
 import FadeContent from "./animations/FadeContent";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Navbar from "./components/layout/navbar";
 
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: true,
     });
+    window.lenis = lenis;
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+    AOS.init({
+      offset: 100,
+      duration: 1000, // Animation duration (ms)
+      easing: "ease-in-out", // Easing type
+      once: false, // Whether animation should happen only once
+    });
+    return () => {
+      window.lenis = null; // Cleanup
+    };
   }, []);
-
   return (
-    <FadeContent
-      blur={true}
-      duration={1000}
-      easing="ease-out"
-      initialOpacity={0}
-    >
-      <div className="main-container">
-        <Aurora
-          colorStops={["#5d275d", "#5d2741", "#5d275d"]}
-          blend={0.7}
-          amplitude={0.5}
-          speed={1}
-        />
-        <div className="min-w-0 min-h-dvh flex justify-center">
-          <main className="min-w-[60%] max-w-[60%] flex flex-col ">
-            <Header />
-
-            <HeroSection />
-            <ProjectsSection />
-            <ContactSection />
-            <Footer />
-          </main>
+    <>
+      <FadeContent
+        blur={true}
+        duration={1000}
+        easing="ease-out"
+        initialOpacity={0}
+      >
+        <div className="main-container ">
+          <Aurora
+            colorStops={["#5d275d", "#5d2741", "#5d275d"]}
+            blend={0.7}
+            amplitude={0.5}
+            speed={1}
+          />
+          <div className="min-w-0 min-h-dvh flex justify-center">
+            <main className=" min-w-[60%] max-w-[100%] w-[60%] flex flex-col ">
+              <Header />
+              <HeroSection />
+              <ProjectsSection />
+              <ContactSection />
+              <Footer />
+            </main>
+          </div>
         </div>
-      </div>
-    </FadeContent>
+        <Navbar />
+      </FadeContent>
+    </>
   );
 }
 
@@ -78,6 +98,7 @@ const HeroSection = () => {
 const ProjectsSection = () => {
   return (
     <section
+      data-aos="fade-right"
       id="project-section"
       className=" flex items-start flex-row justify-between"
     >
@@ -101,7 +122,7 @@ const ProjectsSection = () => {
           {
             title: (
               <TimelineTitle
-                link="https://qr-maker-nu.vercel.app/"
+                link="https://air-jordan-carousel.vercel.app/"
                 name="Air Jordan"
                 techs="Vite, Reactjs, Tailwindcss, GSAP + Lenis"
               />
@@ -151,6 +172,7 @@ const ProjectsSection = () => {
 const ContactSection = () => {
   return (
     <section
+      data-aos="fade-left"
       id="contact-section"
       className="h-dvh flex items-center flex-row justify-between "
     >
