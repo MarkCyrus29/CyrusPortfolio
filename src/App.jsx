@@ -49,7 +49,7 @@ function App() {
         <div className="main-container ">
           <Aurora
             colorStops={["#5d275d", "#5d2741", "#5d275d"]}
-            blend={0.7}
+            blend={1}
             amplitude={0.5}
             speed={1}
           />

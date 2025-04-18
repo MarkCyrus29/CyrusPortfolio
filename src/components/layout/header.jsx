@@ -20,7 +20,7 @@ const Header = () => {
           translateY: "-100px",
           opacity: 0,
           ease: "expo.out",
-          duration: 0.5,
+          duration: 0.3,
           scrollTrigger: {
             trigger: headerRef.current,
             start: "+=400 center",
@@ -38,16 +38,20 @@ const Header = () => {
   return (
     <header ref={headerRef} className="fixed top-5 w-[60%] ">
       <div className="w-full justify-between  flex flex-row items-center p-2">
-        <div className="array">
-          <span className="font-bold text-primary text-6xl">Cyr</span>
-          <span className="text-6xl">.us</span>
+        <div className="array ">
+          <span className="font-bold text-primary text-6xl drop-shadow-[0px_0px_5px_var(--color-primary)]">
+            Cyr
+          </span>
+          <span className="text-6xl drop-shadow-[0px_0px_5px_var(--color-light)]">
+            .us
+          </span>
         </div>
         <div className="flex gap-4 font-array text-xl">
           <button onClick={() => scrollToSection("project-section")}>
             Projects
           </button>
           <button onClick={() => scrollToSection("contact-section")}>
-            Contact me! 
+            Contact me!
           </button>
         </div>
       </div>

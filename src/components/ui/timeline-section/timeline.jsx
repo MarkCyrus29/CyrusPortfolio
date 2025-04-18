@@ -25,7 +25,7 @@ export const Timeline = ({ data }) => {
   return (
     <div className="w-full font-sans md:px-10 " ref={containerRef}>
       <div className="max-w-7xl mx-auto py-20  px-4 md:px-8 lg:px-10 text-center flex  flex-col items-center justify-center ">
-        <h2 className="project-title array  text-lg md:text-9xl mb-5  text-black dark:text-white max-w-9xl drop-shadow-[4px_6px_8px_var(--color-primary),-4px_-4px_8px_var(--color-light)] cursor-default text-center">
+        <h2 className="project-title array  text-lg md:text-[9rem] mb-5  text-black dark:text-white max-w-9xl drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)] cursor-default text-center">
           Projects
         </h2>
         <p className="sans text-gray dark:text-gray text-sm md:text-base max-w-md ">

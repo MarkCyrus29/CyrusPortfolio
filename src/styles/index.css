@@ -14,7 +14,7 @@ button {
   --color-dark: #2e2e2e;
   --color-bg: #0c0c0c;
   --color-gray: #bdbdbd;
-
+  --breakpoint-xs: 360px;
   /* Serif */
   --font-serif: "Playfair Display", serif;
   /* Sans */
@@ -144,5 +144,16 @@ h2 {
 }
 
 .form-input {
-  @apply border-b mb-2 py-2 px-4 focus:outline-none w-[70%] z-10;
+  @apply border-b border-light mb-2 py-2 px-4 focus:outline-none w-[70%] z-10 xs:text-sm sm:text-base;
+}
+
+.contact-button {
+  @apply cursor-pointer py-1.5 px-3 border z-10 border-light rounded-sm;
+}
+
+.footer-link {
+  @apply h-full z-[60];
+}
+.footer-link img {
+  @apply h-4 w-auto;
 }

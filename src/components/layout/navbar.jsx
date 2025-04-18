@@ -35,7 +35,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav ref={navbarRef} className=" sticky bottom-5 z-50 flex justify-center ">
+    <nav
+      ref={navbarRef}
+      className=" sticky bottom-5 z-50 flex justify-center w-full "
+    >
       <div className="flex flex-row p-3 group  rounded-full items-center gap-3 w-max h-max px-4 bg-dark/80  backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 transform-gpu [border:1px_solid_var(--color-dark)] [box-shadow:0_-20px_80px_-20px_var(--color-bg)_inset] transition-all duration-300 hover:scale-105">
         <Icon
           title="Home"
