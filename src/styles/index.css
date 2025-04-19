@@ -144,11 +144,11 @@ h2 {
 }
 
 .form-input {
-  @apply border-b border-light mb-2 py-2 px-4 focus:outline-none w-[70%] z-10 xs:text-sm sm:text-base;
+  @apply border-b border-light mb-2 py-2 px-4 focus:outline-none w-[70%] z-10 xs:text-sm sm:text-base focus:bg-dark transition-colors;
 }
 
 .contact-button {
-  @apply cursor-pointer py-1.5 px-3 border z-10 border-light rounded-sm;
+  @apply cursor-pointer py-1.5 px-3 border z-10 border-light rounded-sm active:bg-dark transition-colors;
 }
 
 .footer-link {

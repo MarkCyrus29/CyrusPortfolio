@@ -73,14 +73,14 @@ function SendEmail() {
           <textarea
             placeholder="Message"
             cols="20"
-            rows="3"
+            rows="2"
             className="form-input resize-none  "
             name="message"
             required
           ></textarea>
 
           <input
-            className="contact-button"
+            className="contact-button mt-2"
             type="submit"
             value="Send Message"
           />
@@ -91,7 +91,7 @@ function SendEmail() {
           target="_blank"
           className="contact-button"
         >
-          Schedule a meeting with me
+          Schedule a meeting
         </a>
       </div>
     </>
