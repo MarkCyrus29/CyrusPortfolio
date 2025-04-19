@@ -7,7 +7,7 @@ import linkedinIcon from "../../assets/navbar/linkedin.svg";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-row justify-between items-center">
+    <footer className="w-[60%] flex flex-row justify-between items-center">
       <div className="array  animate-pulse ">
         <span className="font-bold text-primary text-3xl drop-shadow-[0px_0px_5px_var(--color-primary)]">
           Cyr

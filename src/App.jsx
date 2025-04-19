@@ -115,6 +115,7 @@ function App() {
         </>
       ) : (
         <FadeContent
+          className="h-full "
           blur={true}
           duration={1000}
           easing="ease-out"
@@ -128,7 +129,7 @@ function App() {
               speed={1}
             />
             <div className="min-w-0 min-h-dvh flex justify-center">
-              <main className=" min-w-[60%] max-w-[100%] w-[60%] flex flex-col ">
+              <main className=" w-full flex flex-col justify-center items-center">
                 <Header />
                 <HeroSection />
                 <ProjectsSection />
@@ -150,7 +151,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero-section"
-      className="h-dvh flex items-center flex-col justify-center"
+      className="h-dvh flex items-center flex-col justify-center w-[60%]"
     >
       <div className="flex flex-row items-center justify-between w-full pb-10 pt-10 z-10 ">
         <div className="">
@@ -208,7 +209,7 @@ const ProjectsSection = () => {
     <section
       data-aos="fade-right"
       id="project-section"
-      className="flex items-start flex-row justify-between w-full"
+      className="flex items-center flex-row justify-between w-[70%]"
     >
       <Timeline
         data={[
@@ -224,6 +225,7 @@ const ProjectsSection = () => {
               <TimelineContent
                 desc="QR Maker. A sleek, customizable tool for creating and styling QR codes in seconds."
                 src="/projects/1.mp4"
+                link="https://qr-maker-nu.vercel.app/"
               />
             ),
           },
@@ -239,6 +241,7 @@ const ProjectsSection = () => {
               <TimelineContent
                 desc="Air Jordan. A dynamic showcase of Nike Air Jordan sneakers, powered by GSAP ScrollTrigger."
                 src="/projects/2.mp4"
+                link="https://air-jordan-carousel.vercel.app/"
               />
             ),
           },
@@ -246,7 +249,7 @@ const ProjectsSection = () => {
             title: (
               <TimelineTitle
                 link="https://threadspace.vercel.app/home"
-                name="Thread Space"
+                name="ThreadSpace"
                 techs="Vite, Reactjs, Tailwindcss, Framer Motion, Firebase, Cloudinary"
               />
             ),
@@ -254,6 +257,7 @@ const ProjectsSection = () => {
               <TimelineContent
                 desc="ThreadSpace. A modern social media platform for threaded discussions."
                 src="/projects/3.mp4"
+                link="https://threadspace.vercel.app/home"
               />
             ),
           },
@@ -269,6 +273,7 @@ const ProjectsSection = () => {
               <TimelineContent
                 desc="Marshalls Tailoring. A showcase for a local tailor’s premium coats and how to reach them."
                 src="/projects/4.mp4"
+                link="https://qr-maker-nu.vercel.app/"
               />
             ),
           },
@@ -282,7 +287,7 @@ const ContactSection = () => {
     <section
       data-aos="fade-left"
       id="contact-section"
-      className="h-dvh flex items-center flex-row justify-between "
+      className="h-dvh w-[60%] flex items-center flex-row justify-between "
     >
       <SendEmail />
     </section>
