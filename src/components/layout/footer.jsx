@@ -4,11 +4,15 @@ import telegramIcon from "../../assets/navbar/telegram.svg";
 import facebookIcon from "../../assets/navbar/facebook.svg";
 import githubIcon from "../../assets/navbar/github.svg";
 import linkedinIcon from "../../assets/navbar/linkedin.svg";
+import { scrollToSection } from "../interactions/scroll-to-section";
 
 const Footer = () => {
   return (
-    <footer className="w-[60%] flex flex-row justify-between items-center">
-      <div className="array  animate-pulse ">
+    <footer className="md:w-[60%] xs:w-[80%] xs:pb-5 flex flex-row justify-between items-center">
+      <div
+        className="array cursor-pointer animate-pulse z-[60] "
+        onClick={() => scrollToSection("hero-section")}
+      >
         <span className="font-bold text-primary text-3xl drop-shadow-[0px_0px_5px_var(--color-primary)]">
           Cyr
         </span>

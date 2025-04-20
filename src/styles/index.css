@@ -1,11 +1,12 @@
 @import "tailwindcss";
-
-/* * {
+/* 
+* {
   outline: 1px solid red;
 } */
 button {
   cursor: pointer;
 }
+
 @theme {
   --color-primary: #5d275d;
   --color-analogous: #5d2741;
@@ -119,15 +120,12 @@ h2 {
 
 @keyframes blink {
   20% {
-    scale: 0.98;
     opacity: 100%;
   }
   50% {
     opacity: 45%;
   }
   65% {
-    scale: 1;
-
     opacity: 100%;
   }
   75% {
@@ -137,7 +135,6 @@ h2 {
     opacity: 100%;
   }
   100% {
-    scale: 1;
     opacity: 40%;
   }
 }
@@ -147,7 +144,7 @@ h2 {
 }
 
 .contact-button {
-  @apply cursor-pointer py-1.5 px-3 border z-10 border-light rounded-sm active:bg-dark transition-colors drop-shadow-primary drop-shadow;
+  @apply cursor-pointer py-1.5 px-3 border z-10 border-light rounded-sm active:bg-dark transition-colors drop-shadow-primary drop-shadow xs:text-sm md:text-base;
 }
 
 .footer-link {

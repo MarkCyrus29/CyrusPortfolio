@@ -3,6 +3,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import projectsIcon from "../../assets/navbar/projects.svg";
 import homeIcon from "../../assets/navbar/home.svg";
+import aboutIcon from "../../assets/navbar/about.svg";
 import contactIcon from "../../assets/navbar/contact.svg";
 import githubIcon from "../../assets/navbar/github.svg";
 import linkedinIcon from "../../assets/navbar/linkedin.svg";
@@ -12,26 +13,53 @@ gsap.registerPlugin(ScrollTrigger);
 const Navbar = () => {
   const navbarRef = useRef(null);
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        navbarRef.current,
-        { translateY: "200px", opacity: 0 },
-        {
-          translateY: "0px",
-          opacity: 1,
-          ease: "expo.out",
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: navbarRef.current,
-            start: "-=500 center",
-            end: "+=35  0",
-            toggleActions: "play none none reverse",
-            scrub: 1,
-          },
-        }
-      );
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 800px)", () => {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          navbarRef.current,
+          { translateY: "200px", opacity: 0 },
+          {
+            translateY: "0px",
+            opacity: 1,
+            ease: "expo.out",
+            duration: 0.5,
+            scrollTrigger: {
+              trigger: navbarRef.current,
+              start: "-=500 center",
+              end: "+=350",
+              toggleActions: "play none none reverse",
+              scrub: 1,
+            },
+          }
+        );
+      });
+      return () => ctx.revert();
     });
-    return () => ctx.revert();
+
+    mm.add("(max-width: 799px)", () => {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          navbarRef.current,
+          { translateY: "200px", opacity: 0 },
+          {
+            translateY: "100px",
+            opacity: 1,
+            ease: "expo.out",
+            duration: 0.5,
+            scrollTrigger: {
+              trigger: navbarRef.current,
+              start: "-=600 center",
+              end: "+=350",
+              toggleActions: "play none none reverse",
+              scrub: 1,
+            },
+          }
+        );
+      });
+      return () => ctx.revert();
+    });
   }, []);
 
   return (
@@ -45,6 +73,12 @@ const Navbar = () => {
           className="navbar-icon"
           icon={homeIcon}
           section="hero-section"
+        />
+        <Icon
+          title="About"
+          className="navbar-icon"
+          icon={aboutIcon}
+          section="about-section"
         />
         <Icon
           title="Projects"

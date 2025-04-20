@@ -19,7 +19,8 @@ import facebookIcon from "./assets/navbar/facebook.svg";
 import githubIcon from "./assets/navbar/github.svg";
 import linkedinIcon from "./assets/navbar/linkedin.svg";
 import Loader from "./animations/Loader";
-
+import SplitText from "./animations/SplitText";
+import BlurText from "./animations/BlurText";
 function App() {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -103,6 +104,7 @@ function App() {
       easing: "ease-in-out", // Easing type
       once: false, // Whether animation should happen only once
     });
+
     return () => {
       window.lenis = null; // Cleanup
     };
@@ -117,21 +119,22 @@ function App() {
         <FadeContent
           className="h-full "
           blur={true}
-          duration={1000}
+          duration={800}
           easing="ease-out"
           initialOpacity={0}
         >
+          <Aurora
+            colorStops={["#5d275d", "#5d2741", "#5d275d"]}
+            blend={1}
+            amplitude={0.5}
+            speed={1.5}
+          />
           <div className="main-container ">
-            <Aurora
-              colorStops={["#5d275d", "#5d2741", "#5d275d"]}
-              blend={1}
-              amplitude={0.5}
-              speed={1}
-            />
             <div className="min-w-0 min-h-dvh flex justify-center">
-              <main className=" w-full flex flex-col justify-center items-center">
-                <Header />
+              <Header />
+              <main className="scroll-container w-full flex flex-col justify-center items-center">
                 <HeroSection />
+                <AboutSection />
                 <ProjectsSection />
                 <ContactSection />
                 <Footer />
@@ -151,55 +154,91 @@ const HeroSection = () => {
   return (
     <section
       id="hero-section"
-      className="h-dvh flex items-center flex-col justify-center w-[60%]"
+      className="scroll-child h-dvh flex items-center flex-col  justify-center md:w-[60%] xs:w-[90%]"
     >
-      <div className="flex flex-row items-center justify-between w-full pb-10 pt-10 z-10 ">
-        <div className="">
-          <h1 className="max-text-9xl md:text-9xl">WEB</h1>
-          <h1 className="max-text-6xl md:text-6xl">DEVELOPER</h1>
-          <p className=" text-gray mb-2 text-lg">Mark Cyrus Serrano</p>
-          <div className="flex gap-2 items-center ">
-            <a
-              href="https://www.instagram.com/cyrus.srrn/"
-              target="_blank"
-              className="footer-link"
-            >
-              <img src={instagramIcon} alt="Instagram Icon" />
-            </a>
-            <a
-              href="https://t.me/cyrus_srrn"
-              target="_blank"
-              className="footer-link "
-            >
-              <img src={telegramIcon} alt="Telegram Icon" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/markcyrus-serrano"
-              target="_blank"
-              className="footer-link "
-            >
-              <img src={linkedinIcon} alt="LinkedIn Icon" className="!h-5" />
-            </a>
-            <a
-              href="https://www.facebook.com/cyrus.srrn"
-              target="_blank"
-              className="footer-link "
-            >
-              <img src={facebookIcon} alt="Facebook Icon" />
-            </a>
-            <a
-              href="https://github.com/MarkCyrus29"
-              target="_blank"
-              className="footer-link "
-            >
-              <img src={githubIcon} alt="Github Icon" />
-            </a>
+      <div className="flex md:flex-row xs:flex-col md:items-center justify-between w-full pb-10 pt-10 z-10 ">
+        <FadeContent
+          className="md:w-1/2 sm:w-1/3 xs:pt-10 xs:pb-5 flex flex-col xs:items-center md:items-start "
+          blur={true}
+          duration={1000}
+          easing="ease-out"
+          initialOpacity={0}
+          delay={800}
+        >
+          <div className="flex flex-col xs:justify-center xs:items-center md:items-start">
+            <SplitText
+              text="WEB"
+              className="xs:text-6xl font-bold text-center max-text-9xl md:text-9xl display "
+              delay={300}
+              animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
+              animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+              easing="easeIn"
+              threshold={0.2}
+              rootMargin="-50px"
+            />
+            <SplitText
+              text="DEVELOPER"
+              className="xs:text-3xl font-bold text-center max-text-6xl md:text-6xl display "
+              delay={150}
+              animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
+              animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+              easing="easeIn"
+              threshold={0.2}
+              rootMargin="-50px"
+            />
           </div>
-        </div>
-        <div className="">
+          <BlurText
+            text="Mark Cyrus Serrano"
+            delay={50}
+            animateBy="letters"
+            direction="top"
+            className="text-gray mb-2 text-lg"
+          />
+          <div className="h-full ">
+            <div className="flex gap-2 xs:items-center md:items-start ">
+              <a
+                href="https://www.instagram.com/cyrus.srrn/"
+                target="_blank"
+                className="footer-link"
+              >
+                <img src={instagramIcon} alt="Instagram Icon" />
+              </a>
+              <a
+                href="https://t.me/cyrus_srrn"
+                target="_blank"
+                className="footer-link "
+              >
+                <img src={telegramIcon} alt="Telegram Icon" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/markcyrus-serrano"
+                target="_blank"
+                className="footer-link "
+              >
+                <img src={linkedinIcon} alt="LinkedIn Icon" className="!h-5" />
+              </a>
+              <a
+                href="https://www.facebook.com/cyrus.srrn"
+                target="_blank"
+                className="footer-link "
+              >
+                <img src={facebookIcon} alt="Facebook Icon" />
+              </a>
+              <a
+                href="https://github.com/MarkCyrus29"
+                target="_blank"
+                className="footer-link "
+              >
+                <img src={githubIcon} alt="Github Icon" />
+              </a>
+            </div>
+          </div>
+        </FadeContent>
+        <div className="flex xs:justify-center md:justify-end">
           <HeroImage />
         </div>
       </div>
+
       <TechStack />
     </section>
   );
@@ -209,7 +248,7 @@ const ProjectsSection = () => {
     <section
       data-aos="fade-right"
       id="project-section"
-      className="flex items-center flex-row justify-between w-[70%]"
+      className="scroll-child relative flex items-center flex-row justify-between md:w-[70%] xs:w-[90%] "
     >
       <Timeline
         data={[
@@ -218,7 +257,7 @@ const ProjectsSection = () => {
               <TimelineTitle
                 link="https://qr-maker-nu.vercel.app/"
                 name="QR Maker"
-                techs="Vite, Reactjs, Tailwindcss, MUI"
+                techs={["Vite", "Reactjs", "Tailwindcss", "MUI"]}
               />
             ),
             content: (
@@ -234,7 +273,7 @@ const ProjectsSection = () => {
               <TimelineTitle
                 link="https://air-jordan-carousel.vercel.app/"
                 name="Air Jordan"
-                techs="Vite, Reactjs, Tailwindcss, GSAP + Lenis"
+                techs={["Vite", "Reactjs", "Tailwindcss", "GSAP + Lenis"]}
               />
             ),
             content: (
@@ -250,7 +289,14 @@ const ProjectsSection = () => {
               <TimelineTitle
                 link="https://threadspace.vercel.app/home"
                 name="ThreadSpace"
-                techs="Vite, Reactjs, Tailwindcss, Framer Motion, Firebase, Cloudinary"
+                techs={[
+                  "Vite",
+                  "Reactjs",
+                  "Tailwindcss",
+                  "Framer Motion",
+                  "Firebase",
+                  "Cloudinary",
+                ]}
               />
             ),
             content: (
@@ -266,7 +312,7 @@ const ProjectsSection = () => {
               <TimelineTitle
                 link="https://qr-maker-nu.vercel.app/"
                 name="Marshalls"
-                techs="Vite, Reactjs, Tailwindcss, Emailjs"
+                techs={["Vite", "Reactjs", "Tailwindcss", "Emailjs"]}
               />
             ),
             content: (
@@ -282,12 +328,38 @@ const ProjectsSection = () => {
     </section>
   );
 };
-const ContactSection = () => {
+const AboutSection = () => {
   return (
     <section
       data-aos="fade-left"
+      id="about-section"
+      className="scroll-child h-dvh md:w-[60%] xs:w-[90%] flex items-center flex-col justify-center outline"
+    >
+      <BlurText
+        text="About me"
+        delay={150}
+        animateBy="letters"
+        direction="top"
+        className="project-title array  text-lg md:text-[7rem] xs:text-[4.5rem] text-black dark:text-white max-w-9xl drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)] cursor-default text-center "
+      />
+      <FadeContent
+        className=""
+        blur={true}
+        duration={500}
+        easing="ease-out"
+        initialOpacity={0}
+        delay={200}
+      >
+        Hi! I'm Mark Cyrus Serrano from the Philippines
+      </FadeContent>
+    </section>
+  );
+};
+const ContactSection = () => {
+  return (
+    <section
       id="contact-section"
-      className="h-dvh w-[60%] flex items-center flex-row justify-between "
+      className="scroll-child h-dvh md:w-[60%] xs:w-[90%] flex items-center flex-row justify-between "
     >
       <SendEmail />
     </section>

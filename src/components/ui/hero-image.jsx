@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
+import FadeContent from "../../animations/FadeContent";
 
 const HeroImage = () => {
   useEffect(() => {
@@ -10,8 +11,8 @@ const HeroImage = () => {
       backgroundColor: "#5d2741",
       duration: 0.7,
       stagger: {
-        each: 0.3, // Delay between each pixel
-        from: "random", // Random order
+        each: 0.3,
+        from: "random",
         repeat: true,
         yoyo: true,
         ease: "power2.inOut",
@@ -20,10 +21,16 @@ const HeroImage = () => {
   });
 
   return (
-    <div className="max-w-[500px] max-h-auto grid grid-cols-16 ">
+    <FadeContent
+      className="max-w-[500px] max-h-auto xs:w-[80%] md:w-full grid grid-cols-16"
+      blur={true}
+      duration={1000}
+      easing="ease-out"
+      initialOpacity={0}
+      delay={800}
+    >
       {Array.from({ length: 14 }, (_, row) =>
         Array.from({ length: 16 }, (_, col) => {
-          // Coordinates adjust for zero-based index
           const x = col + 1;
           const y = row + 3;
           const coord = `${x}x${y}`;
@@ -41,7 +48,7 @@ const HeroImage = () => {
           );
         })
       )}
-    </div>
+    </FadeContent>
   );
 };
 

@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Orb from "../../animations/Orb";
-
+import BlurText from "../../animations/BlurText";
+import FadeContent from "../../animations/FadeContent";
 function SendEmail() {
   const [toast, setToast] = useState({
     show: false,
@@ -44,7 +45,14 @@ function SendEmail() {
 
   return (
     <>
-      <div className="w-full h-full flex relative flex-col justify-center items-center">
+      <FadeContent
+        className="w-full h-full flex relative flex-col justify-center items-center"
+        blur={true}
+        duration={500}
+        easing="ease-out"
+        initialOpacity={0}
+        delay={200}
+      >
         {toast.show && (
           <div
             className={`fixed bottom-5 right-0 p-3 rounded-md shadow-lg z-50 
@@ -72,9 +80,13 @@ function SendEmail() {
           ref={form}
           onSubmit={sendEmail}
         >
-          <p className="array mb-5 xs:text-lg md:text-5xl font-bold z-10 drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)]">
-            Send me a Message
-          </p>
+          <BlurText
+            text="Send me a Message"
+            delay={50}
+            animateBy="letters"
+            direction="top"
+            className="array mb-5 xs:text-3xl md:text-5xl font-bold z-10 drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)]"
+          />
 
           <input
             placeholder="Name"
@@ -118,7 +130,7 @@ function SendEmail() {
         >
           Schedule a meeting
         </a>
-      </div>
+      </FadeContent>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
+import FadeContent from "../../animations/FadeContent";
 const techStack = [
   {
     name: "HTML5",
@@ -56,7 +57,14 @@ const techStack = [
 ];
 const TechStack = () => {
   return (
-    <div className="w-full flex justify-center items-start h-1/10">
+    <FadeContent
+      className="w-full flex justify-center items-start h-1/10 "
+      blur={true}
+      duration={1000}
+      easing="ease-out"
+      initialOpacity={0}
+      delay={800}
+    >
       <Marquee
         speed={100}
         autoFill={true}
@@ -70,7 +78,7 @@ const TechStack = () => {
               key={tech.name}
               className="relative flex items-center min-h-24 min-w-24 h-full bg-dark  p-2 mx-5 rounded-t-xl group hover:scale-110 transition-all "
             >
-              <span className="absolute top-0 left-0 h-full w-full bg-linear-to-t from-black/50 to-gray/10 rounded-t-xl transition-opacity opacity-0 hover:opacity-100  "></span>
+              <span className="absolute top-0 left-0 h-full w-full bg-linear-to-t from-black/50 to-gray/10 rounded-t-xl transition-opacity opacity-0 hover:opacity-100 xs:active:opacity-100 "></span>
               <img
                 src={
                   tech.name === "Vite" ? "vite.svg" : `/tech-icons/${tech.icon}`
@@ -78,14 +86,14 @@ const TechStack = () => {
                 alt={tech.name}
                 className="min-h-full min-w-full "
               />
-              <span className="opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-0 truncate left-[50%] translate-x-[-50%]  pointer-events-none">
+              <span className="opacity-0 group-hover:opacity-100 xs:group-active:opacity-100 transition-opacity absolute bottom-0 truncate left-[50%] translate-x-[-50%]  pointer-events-none">
                 {tech.name}
               </span>
             </div>
           );
         })}
       </Marquee>
-    </div>
+    </FadeContent>
   );
 };
 

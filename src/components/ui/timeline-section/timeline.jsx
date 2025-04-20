@@ -1,6 +1,8 @@
 "use client";
 import { useScroll, useTransform, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
+import BlurText from "../../../animations/BlurText";
+import FadeContent from "../../../animations/FadeContent";
 
 export const Timeline = ({ data }) => {
   const ref = useRef(null);
@@ -23,40 +25,68 @@ export const Timeline = ({ data }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div className="w-full font-sans md:px-10 " ref={containerRef}>
-      <div className="max-w-7xl mx-auto py-20  px-4 md:px-8 lg:px-10 text-center flex  flex-col items-center justify-center ">
-        <h2 className="project-title array  text-lg md:text-[9rem] mb-5  text-black dark:text-white max-w-9xl drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)] cursor-default text-center">
-          Projects
-        </h2>
-        <p className="sans text-gray dark:text-gray text-sm md:text-base max-w-md ">
-          Listed are passion projects that showcase my web development journey,
-          with my most recent work at the top.
-        </p>
-      </div>
+    <div className="w-full font-sans md:px-10 relative" ref={containerRef}>
+      <FadeContent
+        className="max-w-7xl mx-auto md:py-0 px-4 md:px-8 lg:px-10 text-center flex  flex-col items-center justify-center   "
+        blur={true}
+        duration={500}
+        easing="ease-out"
+        initialOpacity={0}
+        delay={200}
+      >
+        <BlurText
+          text="Projects"
+          delay={150}
+          animateBy="letters"
+          direction="top"
+          className="project-title array  text-lg md:text-[7rem] xs:text-[4.5rem] text-black dark:text-white max-w-9xl drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)] cursor-default text-center "
+        />
+        <BlurText
+          text="Listed are passion projects that showcase my web development journey, with my most recent work at the top."
+          delay={50}
+          animateBy="words"
+          direction="top"
+          className="sans text-gray dark:text-gray text-sm md:text-sm xs:text-sm  w-[45%] "
+        />
+      </FadeContent>
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => (
           <div
             key={index}
             className={
-              `flex justify-start pt-10  md:gap-10 w-full` +
+              `flex justify-start pt-10  md:gap-10 w-full ` +
               (index === 0 ? " md:pt-10" : " md:pt-40")
             }
           >
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start  max-w-xs lg:max-w-sm md:w-full">
+            <FadeContent
+              className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start  max-w-xs lg:max-w-sm md:w-full"
+              blur={true}
+              duration={500}
+              easing="ease-out"
+              initialOpacity={0}
+              delay={200}
+            >
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-dark flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-dark p-2" />
               </div>
               <span className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-gray dark:text-gray  w-full ">
                 {item.title}
               </span>
-            </div>
+            </FadeContent>
 
-            <div className="relative pl-20 pr-4 md:pl-4 w-full h-full">
+            <FadeContent
+              className="relative pl-20 pr-4 md:pl-4 w-full h-full"
+              blur={true}
+              duration={500}
+              easing="ease-out"
+              initialOpacity={0}
+              delay={200}
+            >
               <span className="md:hidden block text-2xl mb-4 text-left font-bold text-gray dark:text-gray">
                 {item.title}
               </span>
               {item.content}{" "}
-            </div>
+            </FadeContent>
           </div>
         ))}
         <div
