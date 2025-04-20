@@ -1,29 +1,24 @@
-import { useSprings, animated } from "@react-spring/web";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const SplitText = ({
   text = "",
   className = "",
   delay = 100,
-  animationFrom = { opacity: 0, transform: "translate3d(0,40px,0)" },
-  animationTo = { opacity: 1, transform: "translate3d(0,0,0)" },
-  easing = "easeOutCubic",
+  animationFrom = { opacity: 0, y: 40 },
+  animationTo = { opacity: 1, y: 0 },
   threshold = 0.1,
   rootMargin = "-100px",
   textAlign = "center",
   onLetterAnimationComplete,
 }) => {
-  const words = text.split(" ").map((word) => word.split(""));
-  const letters = words.flat();
-  const [inView, setInView] = useState(false);
   const ref = useRef();
-  const animatedCount = useRef(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setInView(true);
+          animateText();
           observer.unobserve(ref.current);
         }
       },
@@ -35,26 +30,20 @@ const SplitText = ({
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
-  const springs = useSprings(
-    letters.length,
-    letters.map((_, i) => ({
-      from: animationFrom,
-      to: inView
-        ? async (next) => {
-            await next(animationTo);
-            animatedCount.current += 1;
-            if (
-              animatedCount.current === letters.length &&
-              onLetterAnimationComplete
-            ) {
-              onLetterAnimationComplete();
-            }
-          }
-        : animationFrom,
-      delay: (i + 4) * delay,
-      config: { easing },
-    }))
-  );
+  const animateText = () => {
+    const spans = ref.current.querySelectorAll("span[data-letter]");
+
+    gsap.set(spans, animationFrom);
+
+    gsap.to(spans, {
+      ...animationTo,
+      stagger: delay / 1000, // convert to seconds
+      ease: "power3.out",
+      onComplete: onLetterAnimationComplete,
+    });
+  };
+
+  const words = text.split(" ").map((word) => word.split(""));
 
   return (
     <p
@@ -71,15 +60,14 @@ const SplitText = ({
             const index =
               words.slice(0, wordIndex).reduce((acc, w) => acc + w.length, 0) +
               letterIndex;
-
             return (
-              <animated.span
+              <span
                 key={index}
-                style={springs[index]}
-                className="inline-block transform transition-opacity will-change-transform"
+                data-letter
+                className="inline-block transform opacity-0 will-change-transform"
               >
                 {letter}
-              </animated.span>
+              </span>
             );
           })}
           <span style={{ display: "inline-block", width: "0.3em" }}>
