@@ -28,7 +28,7 @@ const Header = () => {
       document.body.style.top = `-${scrollPositionRef.current}px`;
       document.body.style.left = "0";
       document.body.style.right = "0";
-      document.body.style.width = "98%";
+      document.body.style.width = "100%";
     } else {
       // Unlock scroll: reset body position and restore scroll
       document.body.style.position = "";
