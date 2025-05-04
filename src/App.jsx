@@ -21,7 +21,7 @@ import youtubeIcon from "./assets/navbar/youtube.svg";
 import Loader from "./animations/Loader";
 import Button from "./components/Button";
 import { scrollToSection } from "./components/functions/scroll-to-section";
-import Icon  from "./components/icon";
+import Icon from "./components/Icon.jsx";
 function App() {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
