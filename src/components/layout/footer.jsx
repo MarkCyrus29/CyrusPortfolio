@@ -5,7 +5,7 @@ import facebookIcon from "../../assets/navbar/facebook.svg";
 import githubIcon from "../../assets/navbar/github.svg";
 import linkedinIcon from "../../assets/navbar/linkedin.svg";
 import CyrusLogo from "../ui/cyrus-logo";
-import Icon from "../icon";
+import Icon from "../Icon";
 
 const Footer = () => {
   return (
