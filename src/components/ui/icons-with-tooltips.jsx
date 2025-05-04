@@ -1,6 +1,6 @@
 import React from "react";
 import { Tooltip } from "react-tooltip";
-import { scrollToSection } from "../interactions/scroll-to-section";
+import { scrollToSection } from "../functions/scroll-to-section";
 
 const Icon = (props) => {
   const section = props.section;

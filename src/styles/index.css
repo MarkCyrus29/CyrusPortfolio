@@ -5,7 +5,10 @@
 } */
 button {
   cursor: pointer;
-}
+  }
+  body {
+    overflow-x: hidden;
+  }
 
 @theme {
   --color-primary: #5d275d;
@@ -74,6 +77,13 @@ h2 {
     background-color: #f9f9f9;
   }
 }
+
+@media (max-width: 768px) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 .pixel-container {
   position: relative;
   max-width: 31.25px;
@@ -108,7 +118,7 @@ h2 {
 }
 
 .navbar-icon {
-  @apply h-4 hover:scale-150 group-hover:scale-110 duration-300 transition-all cursor-pointer hover:px-2 group-hover:m-1;
+  @apply h-4 hover:scale-150 group-hover:scale-110 duration-300 transition-all cursor-pointer hover:px-2 group-hover:m-1 hover:opacity-80;
 }
 
 .project-title {
@@ -144,12 +154,17 @@ h2 {
 }
 
 .contact-button {
-  @apply cursor-pointer py-1.5 px-3 border z-10 border-light rounded-sm active:bg-dark transition-colors drop-shadow-primary drop-shadow xs:text-sm md:text-base;
+  @apply cursor-pointer py-1.5 px-3 border z-10 border-light rounded-sm active:bg-dark/10 transition-colors drop-shadow-primary drop-shadow xs:text-sm md:text-base;
 }
 
-.footer-link {
-  @apply h-full z-[60];
+.sticky-component {
+  position: sticky;
+  top: 0;
+  background: lightblue;
+  padding: 10px;
+  transition: background 0.3s;
 }
-.footer-link img {
-  @apply h-4 w-auto hover:opacity-75 transition-opacity;
+
+.sticky-active {
+  background: lightcoral; /* Change color when sticky */
 }

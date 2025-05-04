@@ -4,58 +4,45 @@ import telegramIcon from "../../assets/navbar/telegram.svg";
 import facebookIcon from "../../assets/navbar/facebook.svg";
 import githubIcon from "../../assets/navbar/github.svg";
 import linkedinIcon from "../../assets/navbar/linkedin.svg";
-import { scrollToSection } from "../interactions/scroll-to-section";
+import CyrusLogo from "../ui/cyrus-logo";
+import Icon from "../icon";
 
 const Footer = () => {
   return (
-    <footer className="md:w-[60%] xs:w-[80%] xs:pb-5 flex flex-row justify-between items-center">
-      <div
-        className="array cursor-pointer animate-pulse z-[60] "
-        onClick={() => scrollToSection("hero-section")}
-      >
-        <span className="font-bold text-primary text-3xl drop-shadow-[0px_0px_5px_var(--color-primary)]">
-          Cyr
-        </span>
-        <span className="text-3xl drop-shadow-[0px_0px_5px_var(--color-light)]">
-          .us
-        </span>
+    <footer className="md:w-[60%] xs:w-[80%] xs:pb-2 flex xs:flex-col md:flex-row xs:justify-center md:justify-between  items-center z-50">
+      <div className="flex flex-col items-center xs:my-2 md:my-0">
+        <CyrusLogo />
+        <p className="md:text-sm xs:text-xs text-gray md:my-1">
+          © 2025 All rights reserved.
+        </p>
       </div>
-      <div className="flex gap-2 items-center ">
-        <a
-          href="https://www.instagram.com/cyrus.srrn/"
-          target="_blank"
-          className="footer-link"
-        >
-          <img src={instagramIcon} alt="Instagram Icon" />
-        </a>
-        <a
-          href="https://t.me/cyrus_srrn"
-          target="_blank"
-          className="footer-link "
-        >
-          <img src={telegramIcon} alt="Telegram Icon" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/markcyrus-serrano"
-          target="_blank"
-          className="footer-link "
-        >
-          <img src={linkedinIcon} alt="LinkedIn Icon" className="!h-5" />
-        </a>
-        <a
-          href="https://www.facebook.com/cyrus.srrn"
-          target="_blank"
-          className="footer-link "
-        >
-          <img src={facebookIcon} alt="Facebook Icon" />
-        </a>
-        <a
-          href="https://github.com/MarkCyrus29"
-          target="_blank"
-          className="footer-link "
-        >
-          <img src={githubIcon} alt="Github Icon" />
-        </a>
+      <div className="flex items-center ">
+        <Icon
+          link="https://www.instagram.com/cyrus.srrn/"
+          img={instagramIcon}
+          alt="Instagram Icon"
+        />
+        <Icon
+          link="https://t.me/cyrus_srrn"
+          img={telegramIcon}
+          alt="Telegram Icon"
+        />
+        <Icon
+          link="https://www.linkedin.com/in/markcyrus-serrano"
+          img={linkedinIcon}
+          alt="LinkedIn Icon"
+          customStyle="xs:!h-6 md:!h-5 2xl:!h-8"
+        />
+        <Icon
+          link="https://www.facebook.com/cyrus.srrn"
+          img={facebookIcon}
+          alt="Facebook Icon"
+        />
+        <Icon
+          link="https://github.com/MarkCyrus29"
+          img={githubIcon}
+          alt="Github Icon"
+        />
       </div>
     </footer>
   );

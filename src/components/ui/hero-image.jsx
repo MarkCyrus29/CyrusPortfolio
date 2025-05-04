@@ -22,7 +22,7 @@ const HeroImage = () => {
 
   return (
     <FadeContent
-      className="max-w-[500px] max-h-auto xs:w-[80%] md:w-full grid grid-cols-16"
+      className="max-w-[90%] max-h-full xs:w-[80%] md:w-full grid grid-cols-16"
       blur={true}
       duration={1000}
       easing="ease-out"
@@ -41,7 +41,7 @@ const HeroImage = () => {
                 loading="lazy"
                 key={`pixel-${coord}`}
                 className="pixel max-w-full max-h-full object-cover select-none "
-                src={`/pixels/image${coord}.jpeg`}
+                src={`/pixels/image${coord}.webp`}
                 alt={`Pixel (${x},${y})`}
               />
             </span>

@@ -70,7 +70,7 @@ const TechStack = () => {
         autoFill={true}
         pauseOnHover={true}
         id="list"
-        className="flex flex-row w-full p-1 overflow-hidden border-x-4 border-x-analogous rounded-4xl "
+        className="flex flex-row w-full p-1 overflow-hidden border-x-4 border-x-analogous rounded-4xl"
       >
         {techStack.map((tech) => {
           return (

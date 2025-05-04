@@ -16,6 +16,12 @@ const FadeContent = ({
   useEffect(() => {
     if (!ref.current) return;
 
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      setInView(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

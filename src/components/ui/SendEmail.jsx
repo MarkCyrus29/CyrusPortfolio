@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Orb from "../../animations/Orb";
-import BlurText from "../../animations/BlurText";
 import FadeContent from "../../animations/FadeContent";
+
 function SendEmail() {
   const [toast, setToast] = useState({
     show: false,
@@ -80,13 +80,9 @@ function SendEmail() {
           ref={form}
           onSubmit={sendEmail}
         >
-          <BlurText
-            text="Send me a Message"
-            delay={50}
-            animateBy="letters"
-            direction="top"
-            className="array mb-5 xs:text-3xl md:text-5xl font-bold z-10 drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)]"
-          />
+          <p className="array mb-5 xs:text-3xl md:text-5xl font-bold z-10 drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)]">
+            {"< Get in Touch />"}
+          </p>
 
           <input
             placeholder="Name"
@@ -97,7 +93,7 @@ function SendEmail() {
           />
 
           <input
-            placeholder="Email / Phone Number"
+            placeholder="Email"
             className="form-input"
             type="text"
             name="user_email"
