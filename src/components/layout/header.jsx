@@ -168,7 +168,7 @@ const Header = () => {
             Contact me!
           </button>
 
-          <p className="absolute bottom-5 md:text-sm xs:text-xs text-gray md:my-1">
+          <p className="absolute bottom-10 md:text-sm xs:text-xs text-gray md:my-1">
             © 2025 All rights reserved.
           </p>
         </div>
