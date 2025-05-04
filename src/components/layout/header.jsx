@@ -13,7 +13,14 @@ const Header = () => {
   const scrollPositionRef = React.useRef(0);
 
   function handleClick() {
-    setIsOpen(!isOpen);
+    const section = document.getElementById("hero-section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      console.log(section);
+    }
+    setTimeout(() => {
+      setIsOpen(!isOpen);
+    }, 150);
   }
 
   useEffect(() => {
