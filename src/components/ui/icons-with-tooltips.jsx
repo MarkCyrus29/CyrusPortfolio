@@ -2,7 +2,7 @@ import React from "react";
 import { Tooltip } from "react-tooltip";
 import { scrollToSection } from "../functions/scroll-to-section";
 
-const Icon = (props) => {
+const IconWithTooltips = (props) => {
   const section = props.section;
   return (
     <>
@@ -26,4 +26,4 @@ const Icon = (props) => {
   );
 };
 
-export default Icon;
+export default IconWithTooltips;

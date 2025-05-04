@@ -7,7 +7,7 @@ import aboutIcon from "../../assets/navbar/about.svg";
 import contactIcon from "../../assets/navbar/contact.svg";
 import githubIcon from "../../assets/navbar/github.svg";
 import linkedinIcon from "../../assets/navbar/linkedin.svg";
-import Icon from "../ui/icons-with-tooltips";
+import IconWithTooltips from "../ui/icons-with-tooltips";
 gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
@@ -42,25 +42,25 @@ const Navbar = () => {
         className="xs:hidden md:flex md:fixed md:opacity-100 md:bottom-5 xs:opacity-0  xs:bottom-0 flex justify-center w-[30%] "
       >
         <div className="flex flex-row p-3 group  rounded-full items-center gap-3 w-max h-max px-4 bg-dark/80  backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 transform-gpu [border:1px_solid_var(--color-dark)] [box-shadow:0_-20px_80px_-20px_var(--color-bg)_inset] scale-85 transition-all duration-300 hover:scale-90 md:z-10 xs:-z-10 ">
-          <Icon
+          <IconWithTooltips
             title="Home"
             className="navbar-icon"
             icon={homeIcon}
             section="hero-section"
           />
-          <Icon
+          <IconWithTooltips
             title="About"
             className="navbar-icon"
             icon={aboutIcon}
             section="about-section"
           />
-          <Icon
+          <IconWithTooltips
             title="Projects"
             className="navbar-icon"
             icon={projectsIcon}
             section="project-section"
           />
-          <Icon
+          <IconWithTooltips
             title="Contact"
             className="navbar-icon"
             icon={contactIcon}
