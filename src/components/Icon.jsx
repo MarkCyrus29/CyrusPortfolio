@@ -1,6 +1,6 @@
 import React from "react";
 
-const Icon = (props) => {
+export const Icon = (props) => {
   return (
     <a
       href={props.link}
