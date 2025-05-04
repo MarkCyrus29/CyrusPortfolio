@@ -109,13 +109,13 @@ function App() {
     };
   }, []);
   return (
-    <>
+    <div className="xs:overflow-x-hidden md:overflow-x-visible">
       {isLoading ? (
         <>
           <Loader progress={loadingProgress} />
         </>
       ) : (
-        <>
+        <div className="">
           <FadeContent
             className="h-full"
             blur={true}
@@ -129,9 +129,9 @@ function App() {
               speed={1.5}
             />
             <div className="main-container ">
-              <div className=" min-w-0 min-h-dvh flex justify-center">
+              <div className=" min-w-0 min-h-screen flex justify-center">
                 <Header />
-                <main className="scroll-container w-full flex flex-col justify-center items-center">
+                <main className="overflow-x-visible h-full scroll-container w-full flex flex-col justify-center items-center">
                   <HeroSection />
                   <AboutSection />
                   <ProjectsSection />
@@ -142,9 +142,9 @@ function App() {
             </div>
           </FadeContent>
           <Navbar />
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -231,7 +231,7 @@ const ProjectsSection = () => {
   return (
     <section
       id="project-section"
-      className="scroll-child relative flex items-center flex-row justify-center  lg:w-[75%] xs:w-[90%] "
+      className=" scroll-child relative flex items-center flex-row justify-center  lg:w-[75%] xs:w-[90%] "
     >
       <Timeline
         data={[
@@ -325,7 +325,7 @@ const AboutSection = () => {
         initialOpacity={0}
         delay={200}
       >
-        <p className="project-title array xl:text-[7rem] lg:text-[5rem] md:text-[4rem] sm:[4rem] xs:text-[3rem] text-black dark:text-white max-w-9xl drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)] cursor-default text-center xs:mt-10">
+        <p className="project-title array xl:text-[7rem] lg:text-[5rem] md:text-[4rem] sm:[4rem] xs:text-[2.5rem] text-black dark:text-white max-w-9xl drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)] cursor-default text-center xs:mt-10">
           {"< About me />"}
         </p>
         <div className="flex flex-col md:w-[80%] text-justify">
@@ -401,7 +401,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact-section"
-      className="scroll-child h-dvh md:w-[60%] xs:w-[90%] flex items-center flex-row justify-between "
+      className="scroll-child h-screen md:w-[60%] xs:w-[90%] flex items-center flex-row justify-between "
     >
       <SendEmail />
     </section>

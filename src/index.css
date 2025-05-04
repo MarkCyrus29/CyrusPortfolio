@@ -1,14 +1,14 @@
 @import "tailwindcss";
-/* 
-* {
-  outline: 1px solid red;
-} */
+
 button {
   cursor: pointer;
-  }
-  body {
-    overflow-x: hidden;
-  }
+}
+/* html {
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+} */
 
 @theme {
   --color-primary: #5d275d;

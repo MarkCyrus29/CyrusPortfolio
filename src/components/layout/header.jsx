@@ -132,8 +132,8 @@ const Header = () => {
       />
       <div
         className={
-          "z-50 absolute right-0 top-0 transition-all duration-300 xs:h-screen md:h-0 xs:bg-bg xs:border-l xs:border-l-dark xs:w-[60%] " +
-          (!isOpen && " xs:!w-0")
+          "z-50 absolute right-0 top-0 transition-all duration-300 xs:h-screen md:h-0 xs:bg-bg xs:border-l xs:border-l-dark xs:w-[60%] opacity-100 " +
+          (!isOpen && " xs:!w-0 !opacity-0")
         }
       >
         <div className="text-start mt-9 ml-10 items-start gap-4 font-array xs:text-xl md:hidden xs:flex xs:flex-col">
