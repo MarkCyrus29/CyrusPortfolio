@@ -67,7 +67,7 @@ export const Timeline = ({ data }) => {
           Listed are passion projects that showcase my web development journey,
           with my most recent work at the top.
         </p>
-      </FadeContent>
+      </FadeContent>  
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20 h-full">
         {data.map((item, index) => (
           <div

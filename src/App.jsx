@@ -3,8 +3,7 @@ import Header from "./components/layout/header";
 import HeroImage from "./components/ui/hero-image";
 import TechStack from "./components/ui/techstack";
 import Aurora from "./animations/Aurora";
-import { useEffect, useState } from "react";
-import Lenis from "lenis";
+import { useEffect, useRef, useState } from "react";
 import { Timeline } from "./components/ui/timeline-section/timeline";
 import TimelineTitle from "./components/ui/timeline-section/timeline-title";
 import TimelineContent from "./components/ui/timeline-section/timeline-content";
@@ -22,10 +21,29 @@ import Loader from "./animations/Loader";
 import Button from "./components/Button";
 import { scrollToSection } from "./components/functions/scroll-to-section";
 import Icon from "./components/Icon.jsx";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollSmoother from "gsap/ScrollSmoother";
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
 function App() {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const wrapperRef = useRef(null);
+  const contentRef = useRef(null);
+  useEffect(() => {
+    if (!wrapperRef.current || !contentRef.current) return;
+    if (window.innerWidth > 768) {
+      ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 1.5,
+        effects: true,
+      });
+    }
+  }, []);
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -59,14 +77,7 @@ function App() {
       "/vite.svg",
     ];
 
-    const projectVids = [
-      "/projects/1.mp4",
-      "/projects/2.mp4",
-      "/projects/3.mp4",
-      "/projects/4.mp4",
-    ];
-
-    const allAssets = [...pixelImages, ...techIcons, ...projectVids];
+    const allAssets = [...pixelImages, ...techIcons];
     const totalAssets = allAssets.length;
     let loadedCount = 0;
 
@@ -92,30 +103,19 @@ function App() {
 
     return () => clearTimeout(timeout);
   }, []);
-  useEffect(() => {
-    const lenis = new Lenis({
-      autoRaf: true,
-    });
-    window.lenis = lenis;
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    return () => {
-      window.lenis = null;
-    };
-  }, []);
   return (
-    <div className="xs:overflow-x-hidden md:overflow-x-visible">
+    <div
+      ref={wrapperRef}
+      id="smooth-wrapper"
+      className="xs:overflow-x-hidden md:overflow-x-visible"
+    >
       {isLoading ? (
         <>
           <Loader progress={loadingProgress} />
         </>
       ) : (
-        <div className="">
+        <div ref={contentRef} id="smooth-content">
           <FadeContent
             className="h-full"
             blur={true}
@@ -131,7 +131,7 @@ function App() {
             <div className="main-container ">
               <div className=" min-w-0 min-h-screen flex justify-center">
                 <Header />
-                <main className="overflow-x-visible h-full scroll-container w-full flex flex-col justify-center items-center">
+                <main className="overflow-x-visible h-full scroll-container w-full flex flex-col justify-center items-center  will-change-transform">
                   <HeroSection />
                   <AboutSection />
                   <ProjectsSection />
@@ -330,7 +330,7 @@ const AboutSection = () => {
         </p>
         <div className="flex flex-col md:w-[80%] text-justify">
           <div className="text-center mb-6">
-            <p className="text-gray xs:text-sm">
+            <p className="text-gray xs:text-sm md:text-base">
               Hi! I'm <u className="text-light">Mark Cyrus Serrano</u>, an
               18-year-old computer science student from the Philippines
               currently studying at De La Salle Lipa. With{" "}
@@ -360,11 +360,10 @@ const AboutSection = () => {
                   />
                 </div>
               </div>
-              <p className="xs:text-sm md:text-base">
-                I specialize in front-end development using HTML, CSS, and
-                JavaScript, and I’m continuously expanding my skills into
-                frameworks like React. I love solving problems and building
-                user-friendly digital experiences that make an impact.
+              <p className="xs:text-base md:text-lg text-start">
+                <li>Front-end development</li>
+                <li>Frameworks like React </li>
+                <li>Building user-friendly web experiences</li>
               </p>
             </div>
             <div className="bg-dark p-4 rounded-lg shadow-md">
@@ -385,10 +384,10 @@ const AboutSection = () => {
                   />
                 </div>
               </div>
-              <p className="xs:text-sm md:text-base">
-                Beyond coding, I enjoy playing the guitar and singing. My goal
-                is to grow as a full-stack developer and contribute to
-                innovative projects that challenge me to learn and improve.
+              <p className="xs:text-base md:text-lg">
+                <li>Playing the guitar</li>
+                <li>Singing</li>
+                <li>Content Creation</li>
               </p>
             </div>
           </div>

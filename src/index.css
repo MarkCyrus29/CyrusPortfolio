@@ -121,34 +121,6 @@ h2 {
   @apply h-4 hover:scale-150 group-hover:scale-110 duration-300 transition-all cursor-pointer hover:px-2 group-hover:m-1 hover:opacity-80;
 }
 
-.project-title {
-  animation: blink 2s infinite ease-in-out;
-}
-.project-title:hover {
-  animation: none;
-}
-
-@keyframes blink {
-  20% {
-    opacity: 100%;
-  }
-  50% {
-    opacity: 45%;
-  }
-  65% {
-    opacity: 100%;
-  }
-  75% {
-    opacity: 45%;
-  }
-  90% {
-    opacity: 100%;
-  }
-  100% {
-    opacity: 40%;
-  }
-}
-
 .form-input {
   @apply border-b border-light mb-2 py-2 px-4 focus:outline-none w-[70%] z-10 xs:text-sm sm:text-base focus:bg-dark transition-colors;
 }

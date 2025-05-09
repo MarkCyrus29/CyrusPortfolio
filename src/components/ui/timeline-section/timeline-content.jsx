@@ -24,6 +24,8 @@ const TimelineContent = (props) => {
             autoPlay
             playsInline
             muted
+            loading="lazy"
+            preload="none"
             className="w-full h-full object-contain -z-10 rounded-lg"
             src={props.src}
           />

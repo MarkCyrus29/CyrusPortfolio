@@ -9,11 +9,12 @@ function SendEmail() {
     message: "",
     isSuccess: false,
   });
+  const [isSending, setIsSending] = useState(false);
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+    setIsSending(true);
     emailjs
       .sendForm(
         "service_h8mqr2f",
@@ -32,6 +33,7 @@ function SendEmail() {
           setTimeout(() => {
             setToast((prev) => ({ ...prev, show: false }));
           }, 5000);
+          setIsSending(false);
         },
         (error) => {
           setToast({
@@ -39,6 +41,7 @@ function SendEmail() {
             message: "Failed to send message. Please try again.",
             isSuccess: false,
           });
+          setIsSending(false);
         }
       );
   };
@@ -110,9 +113,10 @@ function SendEmail() {
           ></textarea>
 
           <input
-            className="contact-button mt-2"
+            className="contact-button mt-2 disabled:opacity-80"
             type="submit"
             value="Send Message"
+            disabled={isSending}
           />
         </form>
 
