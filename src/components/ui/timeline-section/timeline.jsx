@@ -60,14 +60,14 @@ export const Timeline = ({ data }) => {
         initialOpacity={0}
         delay={200}
       >
-        <p className="project-title array   xl:text-[7rem] lg:text-[5rem] md:text-[4rem] sm:[4rem] xs:text-[3rem] text-black dark:text-white max-w-9xl drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)] cursor-default text-center ">
+        <p className="project-title array   xl:text-[6rem] lg:text-[5rem] md:text-[4rem] sm:[4rem] xs:text-[3rem] text-black dark:text-white max-w-9xl drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)] cursor-default text-center ">
           {"< Projects />"}
         </p>
         <p className="sans text-gray dark:text-gray text-sm md:text-sm xs:text-xs  md:w-[45%]  ">
           Listed are passion projects that showcase my web development journey,
           with my most recent work at the top.
         </p>
-      </FadeContent>  
+      </FadeContent>
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20 h-full">
         {data.map((item, index) => (
           <div

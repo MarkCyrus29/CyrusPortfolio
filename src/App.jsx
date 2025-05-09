@@ -3,7 +3,7 @@ import Header from "./components/layout/header";
 import HeroImage from "./components/ui/hero-image";
 import TechStack from "./components/ui/techstack";
 import Aurora from "./animations/Aurora";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Timeline } from "./components/ui/timeline-section/timeline";
 import TimelineTitle from "./components/ui/timeline-section/timeline-title";
 import TimelineContent from "./components/ui/timeline-section/timeline-content";
@@ -21,29 +21,23 @@ import Loader from "./animations/Loader";
 import Button from "./components/Button";
 import { scrollToSection } from "./components/functions/scroll-to-section";
 import Icon from "./components/Icon.jsx";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import ScrollSmoother from "gsap/ScrollSmoother";
-
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+import Lenis from "lenis";
 
 function App() {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const wrapperRef = useRef(null);
-  const contentRef = useRef(null);
   useEffect(() => {
-    if (!wrapperRef.current || !contentRef.current) return;
-    if (window.innerWidth > 768) {
-      ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: 1.5,
-        effects: true,
-      });
-    }
+    if (windowWidth > 768) {
+      const lenis = new Lenis();
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    } else return;
   }, []);
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -105,17 +99,13 @@ function App() {
   }, []);
 
   return (
-    <div
-      ref={wrapperRef}
-      id="smooth-wrapper"
-      className="xs:overflow-x-hidden md:overflow-x-visible"
-    >
+    <div className="xs:overflow-x-hidden md:overflow-x-visible">
       {isLoading ? (
         <>
           <Loader progress={loadingProgress} />
         </>
       ) : (
-        <div ref={contentRef} id="smooth-content">
+        <div>
           <FadeContent
             className="h-full"
             blur={true}
@@ -128,7 +118,7 @@ function App() {
               amplitude={0.5}
               speed={1.5}
             />
-            <div className="main-container ">
+            <div className="main-container">
               <div className=" min-w-0 min-h-screen flex justify-center">
                 <Header />
                 <main className="overflow-x-visible h-full scroll-container w-full flex flex-col justify-center items-center  will-change-transform">
@@ -325,7 +315,7 @@ const AboutSection = () => {
         initialOpacity={0}
         delay={200}
       >
-        <p className="project-title array xl:text-[7rem] lg:text-[5rem] md:text-[4rem] sm:[4rem] xs:text-[2.5rem] text-black dark:text-white max-w-9xl drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)] cursor-default text-center xs:mt-10">
+        <p className="project-title array xl:text-[6rem] lg:text-[5rem] md:text-[4rem] sm:[4rem] xs:text-[2.5rem] text-black dark:text-white max-w-9xl drop-shadow-[0px_0px_2px_var(--color-light),4px_6px_10px_var(--color-primary),-4px_-4px_10px_var(--color-analogous)] cursor-default text-center xs:mt-10">
           {"< About me />"}
         </p>
         <div className="flex flex-col md:w-[80%] text-justify">
