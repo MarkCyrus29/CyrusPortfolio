@@ -292,7 +292,7 @@ const ProjectsSection = () => {
               <TimelineContent
                 desc="Marshalls Tailoring. A showcase for a local tailor’s premium coats and how to reach them."
                 src="/projects/4.mp4"
-                link="https://qr-maker-nu.vercel.app/"
+                link="hhttps://marshalls-tailoring.vercel.app/"
               />
             ),
           },
